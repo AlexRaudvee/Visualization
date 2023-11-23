@@ -1,8 +1,8 @@
-# JBI100-example-app
+# JBI100-visulization-app
 
 ## About this app
 
-You can use this as a basic template for your JBI100 visualization project.
+This app was used for JBI100 visualization project.
 
 ## Requirements
 
