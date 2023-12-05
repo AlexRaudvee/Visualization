@@ -3,8 +3,9 @@ from jbi100_app.main import app
 from jbi100_app.views.menu import make_menu_layout
 from jbi100_app.views.scatterplot import Scatterplot
 
-from dash import html
+from dash import html, dcc
 import plotly.express as px
+import pandas as pd
 from dash.dependencies import Input, Output
 
 
@@ -16,24 +17,31 @@ if __name__ == '__main__':
     scatterplot1 = Scatterplot("Scatterplot 1", 'sepal_length', 'sepal_width', df)
     scatterplot2 = Scatterplot("Scatterplot 2", 'petal_length', 'petal_width', df)
 
+    # Create a world map using Plotly Express
+    data = pd.DataFrame({
+    'Country': ['USA', 'Canada', 'Mexico', 'Brazil', 'UK', 'Germany', 'France', 'China', 'India'],
+    'Value': [100, 90, 80, 70, 60, 50, 40, 30, 20]
+    })
+
+    fig = px.choropleth(data, locations='Country', locationmode='country names', color='Value',
+                    projection='natural earth', title=' ')
+    
+
     app.layout = html.Div(
         id="app-container",
         children=[
-            # Left column
+            # top row
             html.Div(
-                id="left-column",
-                className="three columns",
-                children=make_menu_layout()
+                id="top-row",
+                className="one row",
+                children=[make_menu_layout()]
             ),
 
             # Right column
             html.Div(
-                id="right-column",
-                className="nine columns",
-                children=[
-                    scatterplot1,
-                    scatterplot2
-                ],
+                id="map-column",
+                className="",
+                children=[dcc.Graph(figure=fig)]
             ),
         ],
     )

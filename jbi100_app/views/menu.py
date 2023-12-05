@@ -43,6 +43,21 @@ def generate_control_card():
         ], style={"textAlign": "float-left"}
     )
 
+def generate_title_card():
+    """
+    returns title card 
+    """
+    return html.Div(
+        id="title-card",
+        children=[
+            html.H5("World Cups 1930-2022"),
+            html.Div(
+                id="top-row sub",
+                children="Explore Football With Us!",
+            ),
+        ],)
+
 
 def make_menu_layout():
-    return [generate_description_card(), generate_control_card()]
+    # return [generate_description_card(), generate_control_card()]
+    return [generate_title_card()]

@@ -6,6 +6,21 @@ body {
     margin: 0px;
 }
 
+#top-row {
+    text-align: center; /* Align text to the center */
+    margin-top: 20px; /* Adjust top margin as needed */
+  }
+  
+#top-row h1 {
+    font-size: 2.5em; /* Adjust the font size as desired */
+    font-weight: bold; /* Make the text bold */
+  }
+  
+#top-row sub {
+    font-size: 0.6em; /* Adjust the font size of the subscript */
+    vertical-align: sub; /* Align the subscript below the baseline */
+  }
+
 #left-column {
     padding: 20px 2rem;
     display: flex;
@@ -45,4 +60,12 @@ h5 {
     margin:  0 7px;
     padding-bottom: 7px;
     border-bottom:  1px solid #ccc;
+}
+
+.map-column {
+    padding: 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-self: center;
 }
